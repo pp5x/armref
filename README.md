@@ -5,7 +5,13 @@ from Arm’s XML and XSLT bundles. Inspired by [Jon’s Arm Reference by Jon Pal
 
 This repository hosts only the site generator and its supporting files. The
 build downloads the original XML and XSLT directly from Arm and generates the
-reference pages locally.
+reference pages locally. Generated output is kept out of version control.
+
+## License
+
+The [MIT license](LICENSE) applies only to original work authored for this
+repository. Arm’s XML, XSLT, and documentation, including Arm
+material in the generated pages, are subject to Arm’s terms.
 
 ## Build and serve
 
