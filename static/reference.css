@@ -1,0 +1,277 @@
+:root {
+  color-scheme: light dark;
+  --font: "Berkeley Mono", "SF Mono", "Cascadia Mono", "Liberation Mono", ui-monospace, monospace;
+  font: 13px/1.45 var(--font);
+
+  --paper: #fefefe;
+  --ink: #15151a;
+  --link: #003c9e;
+  --xref: #7323a8;
+  --surface: #f1f2f4;
+  --listing: #edf0fc;
+  --field: #e1f3e8;
+  --range: #fbf2d5;
+  --selection: #eadcf9;
+  --rule: 1px solid var(--ink);
+  --space: 1.15rem;
+
+  --pf-text: var(--ink);
+  --pf-text-secondary: var(--ink);
+  --pf-text-muted: var(--ink);
+  --pf-background: var(--surface);
+  --pf-border: var(--ink);
+  --pf-border-focus: var(--link);
+  --pf-skeleton: var(--paper);
+  --pf-skeleton-shine: var(--surface);
+  --pf-hover: var(--paper);
+  --pf-mark: var(--ink);
+  --pf-outline-focus: var(--link);
+  --pf-font: var(--font);
+  --pf-input-height: 3rem;
+  --pf-input-font-size: 1rem;
+  --pf-result-excerpt-font-size: 0.9rem;
+  --pf-border-radius: 0;
+  --pf-searchbox-max-width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #101014;
+    --ink: #f1eff5;
+    --link: #7fc4ff;
+    --xref: #c1a1ff;
+    --surface: #1b1b21;
+    --listing: #171f3d;
+    --field: #153527;
+    --range: #3b2c18;
+    --selection: #503d71;
+  }
+
+  img.diagram {
+    filter: invert(1);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: var(--space) clamp(1rem, 3vw, 1.75rem) 3rem;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+a {
+  color: var(--link);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.site-header {
+  padding-bottom: var(--space);
+  border-bottom: 1px dashed var(--ink);
+  margin-bottom: calc(2 * var(--space));
+}
+
+pagefind-searchbox {
+  display: block;
+  margin-top: var(--space);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin-block: var(--space);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin: 2.25em 0 0.5em;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+h3,
+.insn_subtitle {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+.insn_subtitle {
+  margin-top: 0;
+  margin-bottom: calc(2 * var(--space));
+}
+
+p,
+ul,
+ol {
+  margin-block: var(--space) 0;
+}
+
+ul,
+ol {
+  padding-inline-start: 2em;
+}
+
+ul li::marker {
+  content: "*  ";
+}
+
+li + li {
+  margin-top: 0.4em;
+}
+
+li > p,
+td > p {
+  margin: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dashed var(--ink);
+  margin: 3rem 0 var(--space);
+}
+
+.diagram-scroll {
+  margin-top: calc(1.5 * var(--space));
+  overflow-x: auto;
+  padding-block: 3px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.regdiagram {
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.regdiagram td {
+  min-width: 1.2rem;
+  padding: 1px;
+}
+
+.regdiagram :is(thead, tfoot) td {
+  font-size: 0.72rem;
+}
+
+.regdiagram .firstrow td {
+  border-block: var(--rule);
+  background: var(--surface);
+}
+
+.regdiagram .firstrow :is(.l, .lr) {
+  border-inline-start: var(--rule);
+}
+
+.regdiagram .firstrow :is(.r, .lr) {
+  border-inline-end: var(--rule);
+}
+
+.regdiagram .firstrow .lr {
+  background: var(--field);
+}
+
+.regdiagram .firstrow td[colspan] {
+  background: var(--range);
+}
+
+:target {
+  background: var(--range);
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+  scroll-margin-top: var(--space);
+}
+
+.armarm-xref,
+li .asm-code {
+  color: var(--xref);
+}
+
+.encoding .asm-code,
+p.pseudocode {
+  overflow-x: auto;
+  border: var(--rule);
+  padding: 0.75rem var(--space);
+}
+
+.encoding .asm-code {
+  background: var(--surface);
+}
+
+p.pseudocode {
+  background: var(--listing);
+  white-space: pre;
+}
+
+.field {
+  padding-inline-start: var(--space);
+}
+
+.note {
+  background: var(--range);
+  border: var(--rule);
+  margin-top: var(--space);
+  padding: 0.75rem var(--space);
+}
+
+.note > :first-child {
+  margin-top: 0;
+}
+
+table:is(.access_instructions, .valuetable, .aliastable) {
+  margin-top: var(--space);
+}
+
+table:is(.access_instructions, .valuetable, .aliastable) :is(td, th) {
+  padding: 0.4rem var(--space) 0.4rem 0;
+  text-align: start;
+}
+
+table.access_instructions {
+  width: 100%;
+  background: var(--field);
+  border: var(--rule);
+}
+
+table.access_instructions :is(td, th):first-child {
+  padding-inline-start: var(--space);
+}
+
+img,
+svg {
+  max-width: 100%;
+}

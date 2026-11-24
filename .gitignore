@@ -1,1 +1,12 @@
-ref
+# Downloaded reference data
+/ref/
+
+# Generated site and staging directories
+/dist/
+/.armref-*/
+
+# Local tooling and Python caches
+/.jj/
+/.venv/
+/.ruff_cache/
+__pycache__/
