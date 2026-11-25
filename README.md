@@ -7,6 +7,8 @@ This repository hosts only the site generator and its supporting files. The
 build downloads the original XML and XSLT directly from Arm and generates the
 reference pages locally. Generated output is kept out of version control.
 
+![Arm Reference showing Pagefind search and the AArch64 ADD immediate instruction encoding](docs/arm-reference.png)
+
 ## License
 
 The [MIT license](LICENSE) applies only to original work authored for this
